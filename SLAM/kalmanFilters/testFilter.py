@@ -17,11 +17,14 @@ plt.title("Synthetic data")
 
 #create filter instance and run
 filter = KalmanFilter(timesteps, signal)
+filter.F = 1.015
+filter.Q = 1
+filter.R = 50
 
-x, xpred, P = filter.runFilter()
+x, P = filter.runFilter()
 
 # visualize
-plt.plot(xpred, color='red', label = 'prediction')
-plt.plot(x, color = 'black', label = 'actual')
+plt.plot(x, color='red', label = 'prediction')
+plt.plot(pure, color = 'black', label = 'actual')
 plt.legend()
 plt.show()

@@ -5,8 +5,6 @@ class KalmanFilter:
     def __init__(self, timesteps, signal):
         self.x = np.zeros((timesteps,))
         self.P = np.zeros((timesteps,))
-        self.xpred = np.zeros((timesteps,))
-        self.ppred = np.zeros((timesteps,))
         self.signal = signal
         self.timesteps = timesteps
 
@@ -48,8 +46,8 @@ class KalmanFilter:
     def runFilter(self):
         for i in range(1, self.timesteps):
             # predict
-            self.xpred[i], self.ppred[i] = self.predict(self.x, self.P, i)
+            xpred, ppred = self.predict(self.x, self.P, i)
             # update
-            self.x[i], self.P[i] = self.update(self.xpred[i], self.ppred[i], self.signal[i], i)
+            self.x[i], self.P[i] = self.update(xpred, ppred, self.signal[i], i)
 
-        return self.x, self.xpred, self.P
+        return self.x, self.P
