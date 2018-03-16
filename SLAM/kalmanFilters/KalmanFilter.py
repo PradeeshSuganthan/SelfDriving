@@ -12,7 +12,7 @@ noise = np.random.normal(0,1,timesteps)
 
 signal = pure + noise
 
-plt.scatter(range(100), signal)
+plt.scatter(range(100), signal, label = 'sensor data')
 plt.title("Synthetic data")
 
 
@@ -76,7 +76,9 @@ for i in range(1, timesteps):
 
 
 #visualize
-plt.plot(xpred, color='red')
+plt.plot(xpred, color='red', label = 'prediction')
+plt.plot(x, color = 'black', label = 'actual')
+plt.legend()
 plt.show()
 
 
