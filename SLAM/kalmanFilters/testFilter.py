@@ -24,6 +24,8 @@ filter.R = 50
 x, P = filter.runFilter()
 
 # visualize
+print(x)
+print(P)
 plt.plot(x, color='red', label = 'prediction')
 plt.plot(pure, color = 'black', label = 'actual')
 plt.legend()
