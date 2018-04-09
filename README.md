@@ -2,8 +2,6 @@
 
 Exploring concepts related to autonomous vehicles.
 
-Categories:
-
 ## Semantic Segmentation
 Currently exploring Mask R-CNN applications.
 
